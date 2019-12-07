@@ -141,7 +141,7 @@ if cwd == '/app' or cwd[:4] == '/tmp':
     SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARD_PROTO', 'https')
 
     # Хостом может быть только Heroku.
-    ALLOWED_HOSTS = ['y-own-learning-log.herokuapp.com']
+    ALLOWED_HOSTS = ['my-own-learning-log.herokuapp.com']
 
     DEBUG = False
 
