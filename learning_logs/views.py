@@ -89,3 +89,19 @@ def edit_entry(request, entry_id):
             return HttpResponseRedirect(reverse('learning_logs:topic', args=[topic.id]))
     context = {'entry': entry, 'topic': topic, 'form': form}
     return render(request, 'learning_logs/edit_entry.html', context)
+
+
+@login_required
+def delete_entry(request, entry_id):
+    """Удаляет существующую запись."""
+    entry = get_object_or_404(Entry, id=entry_id)
+    topic = entry.topic
+    if topic.owner != request.user:
+        raise Http404
+
+    if request.method == 'POST':
+        entry.delete()
+        return HttpResponseRedirect(reverse('learning_logs:topic', args=[topic.id]))
+    else:
+        context = {'entry': entry, 'topic': topic}
+        return render(request, 'learning_logs/delete_entry.html', context)

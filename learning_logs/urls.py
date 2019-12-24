@@ -15,5 +15,7 @@ urlpatterns = [
     # Страница добавления новой записи.
     url(r'^new_enrty/(?P<topic_id>\d+)/$', views.new_entry, name='new_entry'),
     # Страница для редактирования записи.
-    url(r'^edit_entry/(?P<entry_id>\d+)/$', views.edit_entry, name='edit_entry')
+    url(r'^edit_entry/(?P<entry_id>\d+)/$', views.edit_entry, name='edit_entry'),
+    # Страница для удаления записи.
+    url(r'^delete_entry/(?P<entry_id>\d+)/$', views.delete_entry, name='delete_entry'),
 ]
