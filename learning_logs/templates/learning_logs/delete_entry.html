@@ -1,0 +1,16 @@
+{% extends "learning_logs/base.html" %}
+{% load bootstrap3 %}
+
+{% block header %}
+<h2>Delete entry:</h2>
+{% endblock header %}
+
+{% block content %}
+<p>Topic: {{ entry.topic.text }}</p>
+<p>Entry: {{ entry.text }}</p>
+<p>Date added: {{ entry.date_added }}</p>
+<form method="post">
+    {% csrf_token %}
+    <input type="submit" value="Delete">
+</form>
+{% endblock content %}
